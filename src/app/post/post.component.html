@@ -1,0 +1,10 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': getTendance(),
+                'list-group-item-danger': !getTendance()}">
+  <h3>{{postAutor}} : {{postTitle}} </h3>
+  <h5> {{ getPostContent() }}</h5>
+        <button class="btn btn-success"
+                (click)="addLike()">Like {{ nbLike }} </button>
+              <button class="btn btn-success"
+              (click)="addDislike()">Dislike {{ nbDislike }} </button>
+</li>
