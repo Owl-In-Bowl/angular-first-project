@@ -1,33 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
+import { PostService } from './services/post.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+
+@Injectable()
+export class AppComponent implements OnInit {
   title = 'angular-first-project';
   isAuth = false;
+  posts: any[] = [];
 
-  posts = [
-    {
-      autor: 'Paul',
-      title: 'rodrigez en fuite',
-      postContent: 'mon chien rodriguez est parti en tournée du quartier mais n est jamais revenu'
-    },
-    {
-      autor: 'Jamy',
-      title: 'Jermaine a repris du poid',
-      postContent: 'jermaine ne sait pas se tenir, elle est obligé de manger plus gras que nécéssaire'
-    },
-    {
-      autor: 'titus',
-      title: 'main coon',
-      postContent: 'my cat is an asshole !'
-    }
-  ];
-
-  constructor() {
+  constructor(private postService: PostService) { //private postService: PostService
     this.isAuth=true;
   }
+
+  ngOnInit(){
+    this.posts=this.postService.posts;
+  }
+
 }
