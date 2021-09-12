@@ -9,6 +9,8 @@ export class PostComponent implements OnInit {
   @Input() postAutor: string = 'Paul';
   @Input() postTitle: string ='du nouveau vin !';
   @Input() postContent: string = 'le nouveau nez est arrivé ce samedi en bourgogne';
+  @Input() postIndex: number = 0;
+  @Input() postId: number = 0;
 
   nbLike = 0;
   nbDislike=0;

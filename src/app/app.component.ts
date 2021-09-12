@@ -8,17 +8,8 @@ import { PostService } from './services/post.service';
 })
 
 @Injectable()
-export class AppComponent implements OnInit {
+export class AppComponent{
   title = 'angular-first-project';
-  isAuth = false;
-  posts: any[] = [];
-
-  constructor(private postService: PostService) { //private postService: PostService
-    this.isAuth=true;
+  constructor() {
   }
-
-  ngOnInit(){
-    this.posts=this.postService.posts;
-  }
-
 }

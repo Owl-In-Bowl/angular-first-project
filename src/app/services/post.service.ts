@@ -1,19 +1,31 @@
 export class PostService {
   posts = [
     {
+      id: 1,
       autor: 'Paul',
       title: 'rodrigez en fuite',
-      postContent: 'mon chien rodriguez est parti en tournée du quartier mais n est jamais revenu'
+      content: 'mon chien rodriguez est parti en tournée du quartier mais n est jamais revenu'
     },
     {
+      id: 2,
       autor: 'Jamy',
       title: 'Jermaine a repris du poid',
-      postContent: 'jermaine ne sait pas se tenir, elle est obligé de manger plus gras que nécéssaire'
+      content: 'jermaine ne sait pas se tenir, elle est obligé de manger plus gras que nécéssaire'
     },
     {
+      id: 3,
       autor: 'titus',
       title: 'main coon',
-      postContent: 'my cat is an asshole !'
+      content: 'my cat is an asshole !'
     }
   ];
+
+  getPostById(id: number) {
+    const post = this.posts.find(
+      (s) => {
+        return s.id === id;
+      }
+    );
+    return post;
+  }
 }

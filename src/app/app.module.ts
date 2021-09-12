@@ -8,6 +8,17 @@ import { FormsModule } from '@angular/forms';
 import { AuthComponent } from './auth/auth.component';
 import { PostService } from './services/post.service';
 import { PostViewComponent } from './post-view/post-view.component';
+import { Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { AuthService } from './services/auth.service';
+import { SinglePostComponent } from './single-post/single-post.component';
+
+const appRoutes: Routes = [
+  { path: 'posts', component: PostViewComponent},
+  { path: 'posts/:id', component: SinglePostComponent},
+  { path: 'auth', component: AuthComponent},
+  { path: '', component:PostViewComponent}
+];
 
 @NgModule({
   declarations: [
@@ -19,10 +30,12 @@ import { PostViewComponent } from './post-view/post-view.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    PostService
+    PostService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
