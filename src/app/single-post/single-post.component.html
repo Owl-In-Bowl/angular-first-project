@@ -1,7 +1,8 @@
 <h2>Auteur : {{ postAutor }}</h2>
-<p>Titre : {{ postTitle }} / n° {{postIndex}} </p>
+<h2>Titre : {{ postTitle }} / n° {{postIndex}} </h2>
 <p>Contenu : {{postContent}} </p>
 
-<li routerLinkActive="active">
-  <a routerLink="">Retour à la liste</a>
-</li>
+
+<button class="btn btn-info" (click)="goBack()">Retour à la liste </button>
+
+
