@@ -1,5 +1,10 @@
+import { Subject } from "rxjs-compat/Subject";
+
+
 export class PostService {
-  posts = [
+  postSubject = new Subject<any[]>();
+
+  private posts = [
     {
       id: 1,
       autor: 'Paul',
@@ -27,5 +32,9 @@ export class PostService {
       }
     );
     return post;
+  }
+
+  emitPostSubject(){
+    this.postSubject.next(this.posts.slice());
   }
 }
