@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 
 @Injectable()
 export class AppComponent implements OnInit, OnDestroy{
+  //unused = false; //inutile
   title = 'angular-first-project';
   constructor() {
   }

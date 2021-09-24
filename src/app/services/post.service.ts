@@ -19,7 +19,7 @@ export class PostService {
     },
     {
       id: 3,
-      autor: 'titus',
+      autor: 'Titus',
       title: 'main coon',
       content: 'my cat is an asshole !'
     }

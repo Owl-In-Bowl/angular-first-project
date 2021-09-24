@@ -15,14 +15,15 @@ import { SinglePostComponent } from './single-post/single-post.component';
 import { NotFoundFourOFourComponent } from './not-found-four-o-four/not-found-four-o-four.component';
 import { AuthGuard } from './services/auth-guard.service';
 
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   //{ path: 'posts', canActivate: [AuthGuard], component: PostViewComponent},
   //{ path: 'posts/:id', canActivate: [AuthGuard], component: SinglePostComponent},
-  { path: 'posts', canActivate: [AuthGuard], component: PostViewComponent},
-  { path: 'posts/:id', canActivate: [AuthGuard], component: SinglePostComponent},
+  { path: 'posts', component: PostViewComponent},
+  { path: 'posts/:id', component: SinglePostComponent},
   { path: 'auth', component: AuthComponent},
-  { path: '', component:PostViewComponent},
+  { path: '', component:AuthComponent},
   { path: 'not-found', component: NotFoundFourOFourComponent },
   { path: '**', redirectTo: 'not-found' }
 ];
@@ -39,8 +40,10 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
+  exports: [RouterModule],
   providers: [
     PostService,
     AuthService
